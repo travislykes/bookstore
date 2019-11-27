@@ -32,6 +32,7 @@ class ComposerStaticInit47163a4b78acaac8bbbf3a1321168ab6
         array (
             'Typo3Console\\ComposerAutoCommands\\' => 34,
             'TravisLykes\\BookstoreSite\\' => 26,
+            'TravisLykes\\BookStoreApp\\' => 25,
             'TYPO3\\PharStreamWrapper\\' => 24,
             'TYPO3\\ClassAliasLoader\\' => 23,
             'TYPO3\\CMS\\Viewpage\\' => 19,
@@ -110,6 +111,10 @@ class ComposerStaticInit47163a4b78acaac8bbbf3a1321168ab6
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
+        'E' => 
+        array (
+            'EBT\\ExtensionBuilder\\' => 21,
+        ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
@@ -137,6 +142,10 @@ class ComposerStaticInit47163a4b78acaac8bbbf3a1321168ab6
         'TravisLykes\\BookstoreSite\\' => 
         array (
             0 => __DIR__ . '/../..' . '/public/typo3conf/ext/bookstore_site/Classes',
+        ),
+        'TravisLykes\\BookStoreApp\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/public/typo3conf/ext/book_store_app/Classes',
         ),
         'TYPO3\\PharStreamWrapper\\' => 
         array (
@@ -387,6 +396,10 @@ class ComposerStaticInit47163a4b78acaac8bbbf3a1321168ab6
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'EBT\\ExtensionBuilder\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/public/typo3conf/ext/extension_builder/Classes',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

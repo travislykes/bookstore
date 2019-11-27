@@ -674,6 +674,71 @@
         ]
     },
     {
+        "name": "friendsoftypo3/extension-builder",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/FriendsOfTYPO3/extension_builder.git",
+            "reference": "f9e2d79a9419fa4eb54ff500258044c6cdd23b42"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/FriendsOfTYPO3/extension_builder/zipball/f9e2d79a9419fa4eb54ff500258044c6cdd23b42",
+            "reference": "f9e2d79a9419fa4eb54ff500258044c6cdd23b42",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "nikic/php-parser": "^4.0",
+            "typo3/cms-backend": "~9.5",
+            "typo3/cms-core": "~9.5"
+        },
+        "replace": {
+            "typo3-ter/extension-builder": "self.version"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^2",
+            "nimut/testing-framework": "^4",
+            "sebastian/diff": "^3.0"
+        },
+        "time": "2019-11-24T20:18:09+00:00",
+        "type": "typo3-cms-extension",
+        "extra": {
+            "typo3/cms": {
+                "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                "web-dir": ".Build/Web"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "EBT\\ExtensionBuilder\\": "Classes/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Nico de Haen",
+                "role": "Developer"
+            },
+            {
+                "name": "extension_builder Development Team",
+                "role": "Developer"
+            }
+        ],
+        "description": "Tool to kickstart and maintain TYPO3 extensions",
+        "homepage": "https://github.com/FriendsOfTYPO3/extension_builder",
+        "keywords": [
+            "extension",
+            "extension_builder",
+            "typo3"
+        ]
+    },
+    {
         "name": "guzzlehttp/guzzle",
         "version": "6.4.1",
         "version_normalized": "6.4.1.0",
@@ -2687,6 +2752,41 @@
         "homepage": "https://travislykes.com",
         "keywords": [
             "TYPO3 CMS"
+        ]
+    },
+    {
+        "name": "travislykes/book-store-app",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "dist": {
+            "type": "path",
+            "url": "packages/book_store_app",
+            "reference": "cd374cf23086c16d73dc9e3ba333935b97552711"
+        },
+        "require": {
+            "typo3/cms-core": "^9.5"
+        },
+        "replace": {
+            "travislykes/book-store-app": "self.version",
+            "typo3-ter/book-store-app": "self.version"
+        },
+        "type": "typo3-cms-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "TravisLykes\\BookStoreApp\\": "Classes"
+            }
+        },
+        "autoload-dev": {
+            "psr-4": {
+                "TravisLykes\\BookStoreApp\\Tests\\": "Tests"
+            }
+        },
+        "authors": [
+            {
+                "name": "Travis Lykes",
+                "role": "Developer"
+            }
         ]
     },
     {

@@ -98,6 +98,12 @@ return [
         'bookstore_site' => [
             'packagePath' => 'typo3conf/ext/bookstore_site/',
         ],
+        'book_store_app' => [
+            'packagePath' => 'typo3conf/ext/book_store_app/',
+        ],
+        'extension_builder' => [
+            'packagePath' => 'typo3conf/ext/extension_builder/',
+        ],
     ],
     'version' => 5,
 ];

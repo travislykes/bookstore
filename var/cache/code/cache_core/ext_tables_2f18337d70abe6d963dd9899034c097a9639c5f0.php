@@ -973,4 +973,76 @@ $_EXTCONF = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] ?? null;
 
 defined('TYPO3_MODE') || die();
 
+/**
+ * Extension: book_store_app
+ * File: /var/www/html/public/typo3conf/ext/book_store_app/ext_tables.php
+ */
+
+$_EXTKEY = 'book_store_app';
+$_EXTCONF = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] ?? null;
+
+
+defined('TYPO3_MODE') || die('Access denied.');
+
+call_user_func(
+    function()
+    {
+
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+            'TravisLykes.BookStoreApp',
+            'Book',
+            'Book'
+        );
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('book_store_app', 'Configuration/TypoScript', 'Book Store App');
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bookstoreapp_domain_model_book', 'EXT:book_store_app/Resources/Private/Language/locallang_csh_tx_bookstoreapp_domain_model_book.xlf');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bookstoreapp_domain_model_book');
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bookstoreapp_domain_model_topic', 'EXT:book_store_app/Resources/Private/Language/locallang_csh_tx_bookstoreapp_domain_model_topic.xlf');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bookstoreapp_domain_model_topic');
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bookstoreapp_domain_model_author', 'EXT:book_store_app/Resources/Private/Language/locallang_csh_tx_bookstoreapp_domain_model_author.xlf');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bookstoreapp_domain_model_author');
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bookstoreapp_domain_model_publisher', 'EXT:book_store_app/Resources/Private/Language/locallang_csh_tx_bookstoreapp_domain_model_publisher.xlf');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bookstoreapp_domain_model_publisher');
+
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_bookstoreapp_domain_model_country', 'EXT:book_store_app/Resources/Private/Language/locallang_csh_tx_bookstoreapp_domain_model_country.xlf');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_bookstoreapp_domain_model_country');
+
+    }
+);
+
+/**
+ * Extension: extension_builder
+ * File: /var/www/html/public/typo3conf/ext/extension_builder/ext_tables.php
+ */
+
+$_EXTKEY = 'extension_builder';
+$_EXTCONF = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] ?? null;
+
+
+defined('TYPO3_MODE') || die();
+
+if (TYPO3_MODE === 'BE') {
+    /**
+     * Register Backend Module
+     */
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+        'EBT.ExtensionBuilder',
+        'tools',
+        'extensionbuilder',
+        '',
+        [
+            'BuilderModule' => 'index,domainmodelling,dispatchRpc',
+        ],
+        [
+            'access' => 'user,group',
+            'icon' => 'EXT:extension_builder/Resources/Public/Icons/Extension.svg',
+            'labels' => 'LLL:EXT:extension_builder/Resources/Private/Language/locallang_mod.xlf',
+        ]
+    );
+}
+
 #

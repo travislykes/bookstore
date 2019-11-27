@@ -16436,18 +16436,6 @@ return array (
         'html' => 
         array (
           'showitem' => '--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,nav_title,bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.ALT.html_formlabel,--div--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:tabs.background,background_color,background_image,background_image_options,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,--palette--;;hiddenLanguagePalette',
-          'columnsOverrides' => 
-          array (
-            'bodytext' => 
-            array (
-              'config' => 
-              array (
-                'renderType' => 't3editor',
-                'wrap' => 'off',
-                'format' => 'html',
-              ),
-            ),
-          ),
         ),
       ),
       'palettes' => 
@@ -19203,6 +19191,1193 @@ return array (
           array (
             'type' => 'passthrough',
             'default' => 0,
+          ),
+        ),
+      ),
+    ),
+    'tx_bookstoreapp_domain_model_author' => 
+    array (
+      'ctrl' => 
+      array (
+        'title' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_author',
+        'label' => 'name',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'versioningWS' => true,
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'delete' => 'deleted',
+        'enablecolumns' => 
+        array (
+          'disabled' => 'hidden',
+          'starttime' => 'starttime',
+          'endtime' => 'endtime',
+        ),
+        'searchFields' => 'name,biography',
+        'iconfile' => 'EXT:book_store_app/Resources/Public/Icons/tx_bookstoreapp_domain_model_author.gif',
+      ),
+      'interface' => 
+      array (
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, date_of_birth, biography',
+      ),
+      'types' => 
+      array (
+        1 => 
+        array (
+          'showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,name,date_of_birth,biography,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime',
+        ),
+      ),
+      'columns' => 
+      array (
+        'sys_language_uid' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'special' => 'languages',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                1 => -1,
+                2 => 'flags-multiple',
+              ),
+            ),
+            'default' => 0,
+          ),
+        ),
+        'l10n_parent' => 
+        array (
+          'displayCond' => 'FIELD:sys_language_uid:>:0',
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'default' => 0,
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => 0,
+              ),
+            ),
+            'foreign_table' => 'tx_bookstoreapp_domain_model_author',
+            'foreign_table_where' => 'AND `tx_bookstoreapp_domain_model_author`.`pid`=###CURRENT_PID### AND `tx_bookstoreapp_domain_model_author`.`sys_language_uid` IN (-1,0)',
+          ),
+        ),
+        'l10n_diffsource' => 
+        array (
+          'config' => 
+          array (
+            'type' => 'passthrough',
+          ),
+        ),
+        't3ver_label' => 
+        array (
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'max' => 255,
+          ),
+        ),
+        'hidden' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+          'config' => 
+          array (
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => '',
+                'invertStateDisplay' => true,
+              ),
+            ),
+          ),
+        ),
+        'starttime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'endtime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'range' => 
+            array (
+              'upper' => 2145916800,
+            ),
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'name' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_author.name',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'eval' => 'trim,required',
+          ),
+        ),
+        'date_of_birth' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_author.date_of_birth',
+          'config' => 
+          array (
+            'dbType' => 'date',
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'size' => 7,
+            'eval' => 'date',
+            'default' => NULL,
+          ),
+        ),
+        'biography' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_author.biography',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'eval' => 'trim',
+          ),
+        ),
+      ),
+    ),
+    'tx_bookstoreapp_domain_model_book' => 
+    array (
+      'ctrl' => 
+      array (
+        'title' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book',
+        'label' => 'isbn',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'versioningWS' => true,
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'delete' => 'deleted',
+        'enablecolumns' => 
+        array (
+          'disabled' => 'hidden',
+          'starttime' => 'starttime',
+          'endtime' => 'endtime',
+        ),
+        'searchFields' => 'isbn,title,blurb,description',
+        'iconfile' => 'EXT:book_store_app/Resources/Public/Icons/tx_bookstoreapp_domain_model_book.gif',
+      ),
+      'interface' => 
+      array (
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, isbn, title, blurb, description, price, pages, images, topics, authors, publisher',
+      ),
+      'types' => 
+      array (
+        1 => 
+        array (
+          'showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,isbn,title,blurb,description,price,pages,images,topics,authors,publisher,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime',
+        ),
+      ),
+      'columns' => 
+      array (
+        'sys_language_uid' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'special' => 'languages',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                1 => -1,
+                2 => 'flags-multiple',
+              ),
+            ),
+            'default' => 0,
+          ),
+        ),
+        'l10n_parent' => 
+        array (
+          'displayCond' => 'FIELD:sys_language_uid:>:0',
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'default' => 0,
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => 0,
+              ),
+            ),
+            'foreign_table' => 'tx_bookstoreapp_domain_model_book',
+            'foreign_table_where' => 'AND `tx_bookstoreapp_domain_model_book`.`pid`=###CURRENT_PID### AND `tx_bookstoreapp_domain_model_book`.`sys_language_uid` IN (-1,0)',
+          ),
+        ),
+        'l10n_diffsource' => 
+        array (
+          'config' => 
+          array (
+            'type' => 'passthrough',
+          ),
+        ),
+        't3ver_label' => 
+        array (
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'max' => 255,
+          ),
+        ),
+        'hidden' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+          'config' => 
+          array (
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => '',
+                'invertStateDisplay' => true,
+              ),
+            ),
+          ),
+        ),
+        'starttime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'endtime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'range' => 
+            array (
+              'upper' => 2145916800,
+            ),
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'isbn' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.isbn',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'eval' => 'trim,required',
+          ),
+        ),
+        'title' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.title',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'eval' => 'trim,required',
+          ),
+        ),
+        'blurb' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.blurb',
+          'config' => 
+          array (
+            'type' => 'text',
+            'cols' => 40,
+            'rows' => 15,
+            'eval' => 'trim',
+          ),
+        ),
+        'description' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.description',
+          'config' => 
+          array (
+            'type' => 'text',
+            'enableRichtext' => true,
+            'richtextConfiguration' => 'default',
+            'fieldControl' => 
+            array (
+              'fullScreenRichtext' => 
+              array (
+                'disabled' => false,
+              ),
+            ),
+            'cols' => 40,
+            'rows' => 15,
+            'eval' => 'trim',
+          ),
+        ),
+        'price' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.price',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'eval' => 'double2,required',
+          ),
+        ),
+        'pages' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.pages',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 4,
+            'eval' => 'int',
+          ),
+        ),
+        'images' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.images',
+          'config' => 
+          array (
+            'type' => 'inline',
+            'foreign_table' => 'sys_file_reference',
+            'foreign_field' => 'uid_foreign',
+            'foreign_sortby' => 'sorting_foreign',
+            'foreign_table_field' => 'tablenames',
+            'foreign_match_fields' => 
+            array (
+              'fieldname' => 'images',
+              'tablenames' => 'tx_bookstoreapp_domain_model_book',
+              'table_local' => 'sys_file',
+            ),
+            'foreign_label' => 'uid_local',
+            'foreign_selector' => 'uid_local',
+            'overrideChildTca' => 
+            array (
+              'columns' => 
+              array (
+                'uid_local' => 
+                array (
+                  'config' => 
+                  array (
+                    'appearance' => 
+                    array (
+                      'elementBrowserType' => 'file',
+                      'elementBrowserAllowed' => 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg',
+                    ),
+                  ),
+                ),
+              ),
+              'types' => 
+              array (
+                0 => 
+                array (
+                  'showitem' => '
+                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                ),
+                1 => 
+                array (
+                  'showitem' => '
+                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                ),
+                2 => 
+                array (
+                  'showitem' => '
+                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                ),
+                3 => 
+                array (
+                  'showitem' => '
+                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                ),
+                4 => 
+                array (
+                  'showitem' => '
+                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                ),
+                5 => 
+                array (
+                  'showitem' => '
+                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                ),
+              ),
+            ),
+            'filter' => 
+            array (
+              0 => 
+              array (
+                'userFunc' => 'TYPO3\\CMS\\Core\\Resource\\Filter\\FileExtensionFilter->filterInlineChildren',
+                'parameters' => 
+                array (
+                  'allowedFileExtensions' => 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg',
+                  'disallowedFileExtensions' => '',
+                ),
+              ),
+            ),
+            'appearance' => 
+            array (
+              'useSortable' => true,
+              'headerThumbnail' => 
+              array (
+                'field' => 'uid_local',
+                'width' => '45',
+                'height' => '45c',
+              ),
+              'enabledControls' => 
+              array (
+                'info' => true,
+                'new' => false,
+                'dragdrop' => true,
+                'sort' => false,
+                'hide' => true,
+                'delete' => true,
+              ),
+              'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+            ),
+            'maxitems' => 10,
+          ),
+        ),
+        'topics' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.topics',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectMultipleSideBySide',
+            'foreign_table' => 'tx_bookstoreapp_domain_model_topic',
+            'default' => 0,
+            'size' => 10,
+            'autoSizeMax' => 30,
+            'maxitems' => 9999,
+            'multiple' => 0,
+            'fieldControl' => 
+            array (
+              'editPopup' => 
+              array (
+                'disabled' => false,
+              ),
+              'addRecord' => 
+              array (
+                'disabled' => false,
+              ),
+              'listModule' => 
+              array (
+                'disabled' => true,
+              ),
+            ),
+          ),
+        ),
+        'authors' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.authors',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectMultipleSideBySide',
+            'foreign_table' => 'tx_bookstoreapp_domain_model_author',
+            'default' => 0,
+            'size' => 10,
+            'autoSizeMax' => 30,
+            'maxitems' => 9999,
+            'multiple' => 0,
+            'fieldControl' => 
+            array (
+              'editPopup' => 
+              array (
+                'disabled' => false,
+              ),
+              'addRecord' => 
+              array (
+                'disabled' => false,
+              ),
+              'listModule' => 
+              array (
+                'disabled' => true,
+              ),
+            ),
+          ),
+        ),
+        'publisher' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_book.publisher',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectMultipleSideBySide',
+            'foreign_table' => 'tx_bookstoreapp_domain_model_publisher',
+            'default' => 0,
+            'size' => 10,
+            'autoSizeMax' => 30,
+            'maxitems' => 1,
+            'multiple' => 0,
+            'fieldControl' => 
+            array (
+              'editPopup' => 
+              array (
+                'disabled' => false,
+              ),
+              'addRecord' => 
+              array (
+                'disabled' => false,
+              ),
+              'listModule' => 
+              array (
+                'disabled' => true,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+    'tx_bookstoreapp_domain_model_country' => 
+    array (
+      'ctrl' => 
+      array (
+        'title' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_country',
+        'label' => 'name',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'versioningWS' => true,
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'delete' => 'deleted',
+        'enablecolumns' => 
+        array (
+          'disabled' => 'hidden',
+          'starttime' => 'starttime',
+          'endtime' => 'endtime',
+        ),
+        'searchFields' => 'name',
+        'iconfile' => 'EXT:book_store_app/Resources/Public/Icons/tx_bookstoreapp_domain_model_country.gif',
+      ),
+      'interface' => 
+      array (
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name',
+      ),
+      'types' => 
+      array (
+        1 => 
+        array (
+          'showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,name,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime',
+        ),
+      ),
+      'columns' => 
+      array (
+        'sys_language_uid' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'special' => 'languages',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                1 => -1,
+                2 => 'flags-multiple',
+              ),
+            ),
+            'default' => 0,
+          ),
+        ),
+        'l10n_parent' => 
+        array (
+          'displayCond' => 'FIELD:sys_language_uid:>:0',
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'default' => 0,
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => 0,
+              ),
+            ),
+            'foreign_table' => 'tx_bookstoreapp_domain_model_country',
+            'foreign_table_where' => 'AND `tx_bookstoreapp_domain_model_country`.`pid`=###CURRENT_PID### AND `tx_bookstoreapp_domain_model_country`.`sys_language_uid` IN (-1,0)',
+          ),
+        ),
+        'l10n_diffsource' => 
+        array (
+          'config' => 
+          array (
+            'type' => 'passthrough',
+          ),
+        ),
+        't3ver_label' => 
+        array (
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'max' => 255,
+          ),
+        ),
+        'hidden' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+          'config' => 
+          array (
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => '',
+                'invertStateDisplay' => true,
+              ),
+            ),
+          ),
+        ),
+        'starttime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'endtime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'range' => 
+            array (
+              'upper' => 2145916800,
+            ),
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'name' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_country.name',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'eval' => 'trim,required',
+          ),
+        ),
+      ),
+    ),
+    'tx_bookstoreapp_domain_model_publisher' => 
+    array (
+      'ctrl' => 
+      array (
+        'title' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_publisher',
+        'label' => 'name',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'versioningWS' => true,
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'delete' => 'deleted',
+        'enablecolumns' => 
+        array (
+          'disabled' => 'hidden',
+          'starttime' => 'starttime',
+          'endtime' => 'endtime',
+        ),
+        'searchFields' => 'name,description',
+        'iconfile' => 'EXT:book_store_app/Resources/Public/Icons/tx_bookstoreapp_domain_model_publisher.gif',
+      ),
+      'interface' => 
+      array (
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, description, country',
+      ),
+      'types' => 
+      array (
+        1 => 
+        array (
+          'showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,name,description,country,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime',
+        ),
+      ),
+      'columns' => 
+      array (
+        'sys_language_uid' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'special' => 'languages',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                1 => -1,
+                2 => 'flags-multiple',
+              ),
+            ),
+            'default' => 0,
+          ),
+        ),
+        'l10n_parent' => 
+        array (
+          'displayCond' => 'FIELD:sys_language_uid:>:0',
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'default' => 0,
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => 0,
+              ),
+            ),
+            'foreign_table' => 'tx_bookstoreapp_domain_model_publisher',
+            'foreign_table_where' => 'AND `tx_bookstoreapp_domain_model_publisher`.`pid`=###CURRENT_PID### AND `tx_bookstoreapp_domain_model_publisher`.`sys_language_uid` IN (-1,0)',
+          ),
+        ),
+        'l10n_diffsource' => 
+        array (
+          'config' => 
+          array (
+            'type' => 'passthrough',
+          ),
+        ),
+        't3ver_label' => 
+        array (
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'max' => 255,
+          ),
+        ),
+        'hidden' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+          'config' => 
+          array (
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => '',
+                'invertStateDisplay' => true,
+              ),
+            ),
+          ),
+        ),
+        'starttime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'endtime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'range' => 
+            array (
+              'upper' => 2145916800,
+            ),
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'name' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_publisher.name',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'eval' => 'trim,required',
+          ),
+        ),
+        'description' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_publisher.description',
+          'config' => 
+          array (
+            'type' => 'text',
+            'enableRichtext' => true,
+            'richtextConfiguration' => 'default',
+            'fieldControl' => 
+            array (
+              'fullScreenRichtext' => 
+              array (
+                'disabled' => false,
+              ),
+            ),
+            'cols' => 40,
+            'rows' => 15,
+            'eval' => 'trim',
+          ),
+        ),
+        'country' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_publisher.country',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectMultipleSideBySide',
+            'foreign_table' => 'tx_bookstoreapp_domain_model_country',
+            'default' => 0,
+            'size' => 10,
+            'autoSizeMax' => 30,
+            'maxitems' => 1,
+            'multiple' => 0,
+            'fieldControl' => 
+            array (
+              'editPopup' => 
+              array (
+                'disabled' => false,
+              ),
+              'addRecord' => 
+              array (
+                'disabled' => false,
+              ),
+              'listModule' => 
+              array (
+                'disabled' => true,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+    'tx_bookstoreapp_domain_model_topic' => 
+    array (
+      'ctrl' => 
+      array (
+        'title' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_topic',
+        'label' => 'name',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'cruser_id' => 'cruser_id',
+        'versioningWS' => true,
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'delete' => 'deleted',
+        'enablecolumns' => 
+        array (
+          'disabled' => 'hidden',
+          'starttime' => 'starttime',
+          'endtime' => 'endtime',
+        ),
+        'searchFields' => 'name,description',
+        'iconfile' => 'EXT:book_store_app/Resources/Public/Icons/tx_bookstoreapp_domain_model_topic.gif',
+      ),
+      'interface' => 
+      array (
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, description',
+      ),
+      'types' => 
+      array (
+        1 => 
+        array (
+          'showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,name,description,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime',
+        ),
+      ),
+      'columns' => 
+      array (
+        'sys_language_uid' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'special' => 'languages',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
+                1 => -1,
+                2 => 'flags-multiple',
+              ),
+            ),
+            'default' => 0,
+          ),
+        ),
+        'l10n_parent' => 
+        array (
+          'displayCond' => 'FIELD:sys_language_uid:>:0',
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+          'config' => 
+          array (
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'default' => 0,
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => 0,
+              ),
+            ),
+            'foreign_table' => 'tx_bookstoreapp_domain_model_topic',
+            'foreign_table_where' => 'AND `tx_bookstoreapp_domain_model_topic`.`pid`=###CURRENT_PID### AND `tx_bookstoreapp_domain_model_topic`.`sys_language_uid` IN (-1,0)',
+          ),
+        ),
+        'l10n_diffsource' => 
+        array (
+          'config' => 
+          array (
+            'type' => 'passthrough',
+          ),
+        ),
+        't3ver_label' => 
+        array (
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'max' => 255,
+          ),
+        ),
+        'hidden' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
+          'config' => 
+          array (
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'items' => 
+            array (
+              0 => 
+              array (
+                0 => '',
+                1 => '',
+                'invertStateDisplay' => true,
+              ),
+            ),
+          ),
+        ),
+        'starttime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'endtime' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+          'config' => 
+          array (
+            'type' => 'input',
+            'renderType' => 'inputDateTime',
+            'eval' => 'datetime,int',
+            'default' => 0,
+            'range' => 
+            array (
+              'upper' => 2145916800,
+            ),
+            'behaviour' => 
+            array (
+              'allowLanguageSynchronization' => true,
+            ),
+          ),
+        ),
+        'name' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_topic.name',
+          'config' => 
+          array (
+            'type' => 'input',
+            'size' => 30,
+            'eval' => 'trim,required',
+          ),
+        ),
+        'description' => 
+        array (
+          'exclude' => true,
+          'label' => 'LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_bookstoreapp_domain_model_topic.description',
+          'config' => 
+          array (
+            'type' => 'text',
+            'enableRichtext' => true,
+            'richtextConfiguration' => 'default',
+            'fieldControl' => 
+            array (
+              'fullScreenRichtext' => 
+              array (
+                'disabled' => false,
+              ),
+            ),
+            'cols' => 40,
+            'rows' => 15,
+            'eval' => 'trim',
           ),
         ),
       ),

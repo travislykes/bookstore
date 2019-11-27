@@ -1651,4 +1651,70 @@ $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['bookstore_site'] = 'EXT:bookstore
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TsConfig/Page/All.tsconfig">');
 
 
+/**
+ * Extension: book_store_app
+ * File: /var/www/html/public/typo3conf/ext/book_store_app/ext_localconf.php
+ */
+
+$_EXTKEY = 'book_store_app';
+$_EXTCONF = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY] ?? null;
+
+
+defined('TYPO3_MODE') || die('Access denied.');
+
+call_user_func(
+    function()
+    {
+
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'TravisLykes.BookStoreApp',
+            'Book',
+            [
+                'Book' => 'list, show, new, create, edit, update, delete',
+                'Topic' => 'list, show, new, create, edit, update, delete',
+                'Author' => 'list, show, new, create, edit, update, delete',
+                'Publisher' => 'list, show, new, create, edit, update',
+                'Country' => 'list, show, new, create, edit, update, delete'
+            ],
+            // non-cacheable actions
+            [
+                'Book' => 'create, update, delete',
+                'Topic' => 'create, update, delete',
+                'Author' => 'create, update, delete',
+                'Publisher' => 'create, update',
+                'Country' => 'create, update, delete'
+            ]
+        );
+
+        // wizards
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+            'mod {
+                wizards.newContentElement.wizardItems.plugins {
+                    elements {
+                        book {
+                            iconIdentifier = book_store_app-plugin-book
+                            title = LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_book_store_app_book.name
+                            description = LLL:EXT:book_store_app/Resources/Private/Language/locallang_db.xlf:tx_book_store_app_book.description
+                            tt_content_defValues {
+                                CType = list
+                                list_type = bookstoreapp_book
+                            }
+                        }
+                    }
+                    show = *
+                }
+           }'
+        );
+		$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+		
+			$iconRegistry->registerIcon(
+				'book_store_app-plugin-book',
+				\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+				['source' => 'EXT:book_store_app/Resources/Public/Icons/user_plugin_book.svg']
+			);
+		
+    }
+);
+
+
 #

@@ -2,5 +2,11 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/book_store_app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/public/typo3conf/ext/book_store_app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/public/typo3conf/ext/extension_builder" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/public/uploads/tx_extensionbuilder/backups/book_store_app/2019-11-27-1574853363" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/public/uploads/tx_extensionbuilder/backups/book_store_app/2019-11-27-1574853749" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/public/uploads/tx_extensionbuilder/backups/book_store_app/2019-11-27-1574853786" vcs="Git" />
   </component>
 </project>
